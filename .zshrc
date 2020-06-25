@@ -8,4 +8,5 @@ source $ZDOTDIR/exports.zsh
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/functions.zsh
 source $ZDOTDIR/bindings.zsh
+source $ZDOTDIR/autocomplete.zsh
 source $ZDOTDIR/prompt.zsh
