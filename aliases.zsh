@@ -17,3 +17,6 @@ alias lt="exa -Tlh --icons --level=3"
 alias ip="ip -color=auto"
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
+
+#tmux
+alias t="tmux"
