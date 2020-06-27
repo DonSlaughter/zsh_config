@@ -6,5 +6,5 @@ precmd_functions+=( precmd_vcs_info )
 #unicode Arrow
 arrow=$'\U276f'
 
-export PROMPT="%B%{$fg[blue]%}%1~%{$fg[red]%}$arrow%b"
+export PROMPT="%B%{$fg[blue]%}%1~%{$fg[red]%} $arrow%b"
 export RPROMPT="%~"

@@ -10,7 +10,7 @@ man() {
 }
 
 
-
+# Hook for Pacman that after an Software Installation new programms are usable in ZSH
 zshcache_time="$(date +%s%N)"
 
 autoload -Uz add-zsh-hook
@@ -25,11 +25,3 @@ rehash_precmd() {
 }
 
 add-zsh-hook -Uz precmd rehash_precmd
-
-setopt AUTO_PUSHD PUSHD_SILENT PUSHD_TO_HOME
-
-## Remove duplicate entries
-setopt PUSHD_IGNORE_DUPS
-
-## This reverts the +/- operators.
-setopt PUSHD_MINUS
