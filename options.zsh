@@ -1,39 +1,58 @@
 stty stop undef # Disable ctrl-s to freeze terminal
 
-HISTFILE=~/.cache/zsh/histfile
-HISTSIZE=10000
-SAVEHIST=10000
+bindkey -e
 
-setopt AUTO_CD                 # [default] .. is shortcut for cd .. (etc)
-setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
-setopt AUTO_PUSHD              # [default] cd automatically pushes old dir onto dir stack
-setopt AUTO_RESUME             # allow simple commands to resume backgrounded jobs
-setopt CLOBBER                 # allow clobbering with >, no need to use >!
-setopt CORRECT                 # [default] command auto-correction
-setopt CORRECT_ALL             # [default] argument auto-correction
-setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
-setopt NO_HIST_IGNORE_ALL_DUPS # don't filter non-contiguous duplicates from history
-setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
-setopt HIST_IGNORE_DUPS        # do filter contiguous duplicates from history
-setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
-setopt HIST_VERIFY             # confirm history expansion (!$, !!, !foo)
-setopt IGNORE_EOF              # [default] prevent accidental C-d from exiting shell
-setopt INTERACTIVE_COMMENTS    # [default] allow comments, even in interactive shells
-setopt LIST_PACKED             # make completion lists more densely packed
-setopt MENU_COMPLETE           # auto-insert first possible ambiguous completion
-setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
-setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
-setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
-setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/popping
-setopt SHARE_HISTORY           # share history across shells
-setopt PROMPT_SUBST
-setopt PUSHD_MINUS             # This reverts the +/- operators.
+# ls colors
+autoload -U colors && colors
 
-zstyle ':completion:*' rehash true
+# Enable ls colors
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
 
-autoload -U colors && colors	# Load colors
+# TODO organise this chaotic logic
 
+if [[ "$DISABLE_LS_COLORS" != "true" ]]; then
+  # Find the option for using colors in ls, depending on the version
+  if [[ "$OSTYPE" == netbsd* ]]; then
+    # On NetBSD, test if "gls" (GNU ls) is installed (this one supports colors);
+    # otherwise, leave ls as is, because NetBSD's ls doesn't support -G
+    gls --color -d . &>/dev/null && alias ls='gls --color=tty'
+  elif [[ "$OSTYPE" == openbsd* ]]; then
+    # On OpenBSD, "gls" (ls from GNU coreutils) and "colorls" (ls from base,
+    # with color and multibyte support) are available from ports.  "colorls"
+    # will be installed on purpose and can't be pulled in by installing
+    # coreutils, so prefer it to "gls".
+    gls --color -d . &>/dev/null && alias ls='gls --color=tty'
+    colorls -G -d . &>/dev/null && alias ls='colorls -G'
+  elif [[ "$OSTYPE" == (darwin|freebsd)* ]]; then
+    # this is a good alias, it works by default just using $LSCOLORS
+    ls -G . &>/dev/null && alias ls='ls -G'
 
+    # only use coreutils ls if there is a dircolors customization present ($LS_COLORS or .dircolors file)
+    # otherwise, gls will use the default color scheme which is ugly af
+    [[ -n "$LS_COLORS" || -f "$HOME/.dircolors" ]] && gls --color -d . &>/dev/null && alias ls='gls --color=tty'
+  else
+    # For GNU ls, we use the default ls color theme. They can later be overwritten by themes.
+    if [[ -z "$LS_COLORS" ]]; then
+      (( $+commands[dircolors] )) && eval "$(dircolors -b)"
+    fi
 
+    ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/null && alias ls='ls -G' }
 
-bindkey -v
+    # Take advantage of $LS_COLORS for completion as well.
+    zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+  fi
+fi
+
+setopt auto_cd
+setopt multios
+setopt prompt_subst
+
+[[ -n "$WINDOW" ]] && SCREEN_NO="%B$WINDOW%b " || SCREEN_NO=""
+
+# git theming default: Variables for theming the git info prompt
+ZSH_THEME_GIT_PROMPT_PREFIX="git:("         # Prefix at the very beginning of the prompt, before the branch name
+ZSH_THEME_GIT_PROMPT_SUFFIX=")"             # At the very end of the prompt
+ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
+ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
+ZSH_THEME_RUBY_PROMPT_PREFIX="("
+ZSH_THEME_RUBY_PROMPT_SUFFIX=")"

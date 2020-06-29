@@ -7,7 +7,7 @@ alias vimrc="cd ~/.vim && nvim vimrc *.vim"
 alias nburl="nvim ~/.config/newsboat/urls"
 
 #ask before removing, copying and moving
-alias rm="rm -Vi"
+alias rm="rm -iv"
 alias cp="cp -iv"
 alias mv="mv -iv"
 

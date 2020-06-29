@@ -1,7 +1,7 @@
-
-#Completion
-autoload -Uz compinit
+autoload -U compinit
 compinit -u
+
+
 # Make completion:
 # - Try exact (case-sensitive) match first.
 # - Then fall back to case-insensitive.
@@ -20,9 +20,10 @@ zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(..) ]] && reply=(..)
 # they will only be used as a fallback if no completions are found.
 zstyle ':completion:*:complete:(cd|pushd):*' tag-order 'local-directories named-directories'
 
+# Categorize completion suggestions with headings:
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format %F{default}%B%{$__WINCENT[ITALIC_ON]%}--- %d ---%{$__WINCENT[ITALIC_OFF]%}%b%f
+
 # Enable keyboard navigation of completions in menu
 # (not just tab/shift-tab but cursor keys as well):
 zstyle ':completion:*' menu select
-
-#zmodload zsh/complist
-#_comp_options+=(globdots)
