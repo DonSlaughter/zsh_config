@@ -4,7 +4,6 @@ source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/functions.zsh
 source $ZDOTDIR/bindings.zsh
 source $ZDOTDIR/autocomplete.zsh
-source $ZDOTDIR/history.zsh
 source $ZDOTDIR/prompt.zsh
 source $ZDOTDIR/plugins/*.zsh
 source $ZDOTDIR/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh

@@ -20,8 +20,6 @@
 # Dummy implementations that return false to prevent command_not_found
 # errors with themes, that implement these functions
 # Real implementations will be used when the respective plugins are loaded
-autoload -U colors
-colors
 
 # http://zsh.sourceforge.net/Doc/Release/User-Contributions.html
 autoload -Uz vcs_info

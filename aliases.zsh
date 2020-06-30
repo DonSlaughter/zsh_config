@@ -27,4 +27,4 @@ alias grep='grep --color=auto'
 alias t="tmux"
 
 #shortcuts for folders
-alias uni="cd ~/Documents/BUW && exa -l"
+alias uni="cd ~/Documents/BUW"
