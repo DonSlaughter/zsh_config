@@ -7,6 +7,7 @@ alias vimrc="cd ~/.vim && nvim vimrc *.vim"
 alias nburl="nvim ~/.config/newsboat/urls"
 
 #ask before removing, copying and moving
+#and show  result
 alias rm="rm -iv"
 alias cp="cp -iv"
 alias mv="mv -iv"
@@ -26,5 +27,9 @@ alias grep='grep --color=auto'
 #tmux
 alias t="tmux"
 
+#Navigation
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 #shortcuts for folders
 alias uni="cd ~/Documents/BUW"

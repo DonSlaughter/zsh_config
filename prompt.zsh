@@ -22,6 +22,7 @@
 # Real implementations will be used when the respective plugins are loaded
 
 # http://zsh.sourceforge.net/Doc/Release/User-Contributions.html
+
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
@@ -98,5 +99,6 @@ function () {
 
 export RPROMPT=$RPROMPT_BASE
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
+
 
 #

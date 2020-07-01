@@ -17,9 +17,3 @@
 #  zle -N down-line-or-beginning-search
 #  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 #fi
-if tput cbt &> /dev/null; then
-  bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
-fi
-HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down

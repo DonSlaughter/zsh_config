@@ -1,4 +1,4 @@
-#colored man pages
+##colored man pages
 man() {
     LESS_TERMCAP_md=$'\e[01;31m' \
     LESS_TERMCAP_me=$'\e[0m' \
