@@ -9,9 +9,6 @@ typeset -A __MORGOTH
 __MORGOTH[ITALIC_ON]=$'\e[3m'
 __MORGOTH[ITALIC_OFF]=$'\e[23m'
 
-
-fpath=($HOME/.zsh/completions $fpath)
-
 autoload -U compinit
 compinit -u
 
@@ -193,17 +190,17 @@ HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 # Bindings
 #
 
-bindkey -e # emacs bindings, set to -v for vi bindings
+bindkey -v # emacs bindings, set to -v for vi bindings
 
-# Use "cbt" capability ("back_tab", as per `man terminfo`), if we have it:
-if tput cbt &> /dev/null; then
-  bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
-fi
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey '^P' history-substring-search-up
-bindkey '^N' history-substring-search-down
+## Use "cbt" capability ("back_tab", as per `man terminfo`), if we have it:
+#if tput cbt &> /dev/null; then
+#  bindkey "$(tput cbt)" reverse-menu-complete # make Shift-tab go to previous completion
+#fi
+#
+#bindkey '^[[A' history-substring-search-up
+#bindkey '^[[B' history-substring-search-down
+#bindkey '^P' history-substring-search-up
+#bindkey '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
@@ -215,19 +212,19 @@ bindkey ' ' magic-space # do history expansion on space
 
 # Replace standard history-incremental-search-{backward,forward} bindings.
 # These are the same but permit patterns (eg. a*b) to be used.
-bindkey "^r" history-incremental-pattern-search-backward
-bindkey "^s" history-incremental-pattern-search-forward
+#bindkey "^r" history-incremental-pattern-search-backward
+#bindkey "^s" history-incremental-pattern-search-forward
 
-# Make CTRL-Z background things and unbackground them.
-function fg-bg() {
-  if [[ $#BUFFER -eq 0 ]]; then
-    fg
-  else
-    zle push-input
-  fi
-}
-zle -N fg-bg
-bindkey '^Z' fg-bg
+## Make CTRL-Z background things and unbackground them.
+#function fg-bg() {
+#  if [[ $#BUFFER -eq 0 ]]; then
+#    fg
+#  else
+#    zle push-input
+#  fi
+#}
+#zle -N fg-bg
+#bindkey '^Z' fg-bg
 
 #
 # Other
@@ -236,22 +233,7 @@ bindkey '^Z' fg-bg
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/exports.zsh
 source $HOME/.config/zsh/functions.zsh
-#source $HOME/.zsh/common
-#source $HOME/.config/zsh/colors.zsh
-#source $HOME/.zsh/exports
-#source $HOME/.zsh/functions
-#source $HOME/.zsh/hash
-#source $HOME/.zsh/path
-#source $HOME/.zsh/vars
-
-#
-# Third-party
-#
-
-# Skim
-
-# test -e "$HOME/.zsh/skim/shell/key-bindings.zsh" && source "$HOME/.zsh/skim/shell/key-bindings.zsh"
-test -e "$HOME/.zsh/skim/shell/completion.zsh" && source "$HOME/.zsh/skim/shell/completion.zsh"
+source $HOME/.config/zsh/bindings.zsh
 
 #
 # Hooks
@@ -399,3 +381,4 @@ zstyle ':chpwd:*' recent-dirs-default true
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
