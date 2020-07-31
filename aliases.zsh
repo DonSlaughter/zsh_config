@@ -33,3 +33,4 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 #shortcuts for folders
 alias uni="cd ~/Documents/BUW"
+alias todo="nvim ~/todo.txt"
