@@ -14,10 +14,19 @@ alias mv="mv -iv"
 
 #exa
 #exa is a ls clone which colors the output and the permissions, can show devicons and much more
-alias l="exa -l"
-alias la="exa -glah --git --icons"
-alias ll="exa -lh --git-ignore --icons --git"
-alias lt="exa -Tlh --icons --level=3"
+#wrapper to check if exa is installed
+if ! command -v exa &> /dev/null
+then
+	alias l="ls -alF"
+	alias la="ls -la"
+	alias ll="ls -l"
+else
+	alias ls="exa"
+	alias l="exa -l"
+	alias la="exa -glah --git --icons"
+	alias ll="exa -lh --git-ignore --icons --git"
+	alias lt="exa -Tlh --icons --level=3"
+fi
 
 #color aliases:
 alias ip="ip -color=auto"
