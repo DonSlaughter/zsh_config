@@ -7,6 +7,5 @@ echo "export ZDOTDIR=\$HOME/.config/zsh" >> ~/.zshenv
 #moving cloned folders to ~/.config/zsh to clean up the home directory
 location=$(pwd)
 cd ~
-mv . /home/\$USER/.config/zsh/
-rmdir $location
+mv $location /home/\$USER/.config/zsh
 cd /home/\$USER/.config/zsh
