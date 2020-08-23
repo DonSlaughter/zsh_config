@@ -4,7 +4,6 @@ alias svim="sudo -E nvim"
 ## change directory and open files directly in vim
 alias zshconf="cd ~/.config/zsh && nvim .zshrc *.zsh"
 alias vimconf="cd ~/.vim && nvim vimrc *.vim"
-alias nburl="nvim ~/.config/newsboat/urls"
 
 #ask before removing, copying and moving
 #and show  result
@@ -35,6 +34,10 @@ alias grep='grep --color=auto'
 
 #tmux
 alias t="tmux"
+
+#newsboat
+alias nb="newsboat"
+alias nburl="nvim ~/.config/newsboat/urls"
 
 #Navigation
 alias ...="cd ../.."
