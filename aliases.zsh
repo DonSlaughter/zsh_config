@@ -37,7 +37,7 @@ alias t="tmux"
 
 #newsboat
 alias nb="newsboat"
-alias nburl="nvim ~/.config/newsboat/urls"
+alias nburl="cd ~/.config/newsboat/ && nvim ~/.config/newsboat/urls"
 
 #Navigation
 alias ...="cd ../.."
