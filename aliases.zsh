@@ -48,3 +48,12 @@ alias uni="cd ~/Documents/BUW"
 alias todo="nvim ~/todo.txt"
 alias fgw="cd ~/Documents/FGW/"
 alias vpa="cd ~/Documents/FGW/VPA/"
+
+#Git
+alias g="git"
+alias ga="git add"
+alias gaa="git add --all"
+alias gb="git branch"
+alias gc="git commit -v"
+alias gco="git checkout"
+alias gd="git diff"
