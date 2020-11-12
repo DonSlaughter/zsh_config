@@ -43,7 +43,11 @@ fi
 
 bindkey -s '^o' 'nvim $(fzf)^M'
 bindkey -s '^f' 'ranger^M'
-if ! command -v yay &> /dev/null
+if type yay &> /dev/null
 then
     bindkey -s '^u' 'yay -Syyu^M'
+fi
+if type apt &> /dev/null
+then
+    bindkey -s '^u' 'sudo apt update && sudo apt upgrade^M'
 fi
