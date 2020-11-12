@@ -43,3 +43,4 @@ fi
 
 bindkey -s '^o' 'nvim $(fzf)^M'
 bindkey -s '^f' 'ranger^M'
+bindkey -s '^u' 'yay -Syyu^M'
