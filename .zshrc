@@ -397,8 +397,8 @@ fi
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-if [ -f /opt/ros/fox/setup.zsh ]; then
-    source /opt/ros/fox/setup.zsh
+if [ -f /opt/ros/foxy/setup.zsh ]; then
+    source /opt/ros/foxy/setup.zsh
 fi
 
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
