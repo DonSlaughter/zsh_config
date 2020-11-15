@@ -33,7 +33,7 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 
 #tmux
-alias t="tmux"
+alias t="tmux -f $home/.config/tmux/tmux.conf"
 
 #newsboat
 alias nb="newsboat"
