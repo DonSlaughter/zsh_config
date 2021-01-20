@@ -43,6 +43,7 @@ fi
 
 bindkey -s '^o' 'nvim $(fzf)^M'
 bindkey -s '^f' 'ranger^M'
+bindkey -s '^p' 'zathura $(find -iname \"*.pdf\" | fzf)^M'
 if type yay &> /dev/null
 then
     bindkey -s '^u' 'yay -Syyu^M'
