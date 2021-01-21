@@ -235,6 +235,10 @@ source $HOME/.config/zsh/exports.zsh
 source $HOME/.config/zsh/functions.zsh
 source $HOME/.config/zsh/bindings.zsh
 
+###own folder aliases
+if [ -f $HOME/.config/zsh/folder_aliases.zsh ]; then
+    source $HOME/.config/zsh/folder_aliases.zsh
+fi
 #
 # Hooks
 #

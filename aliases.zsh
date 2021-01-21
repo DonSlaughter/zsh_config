@@ -43,11 +43,6 @@ alias nburl="cd ~/.config/newsboat/ && nvim ~/.config/newsboat/urls"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-#shortcuts for folders
-alias uni="cd ~/Documents/BUW"
-alias todo="nvim ~/todo.txt"
-alias fgw="cd ~/Documents/FGW/"
-alias vpa="cd ~/Documents/FGW/VPA/"
 
 #Git
 alias g="git"
