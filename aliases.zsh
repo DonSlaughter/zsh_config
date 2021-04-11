@@ -54,3 +54,6 @@ alias gco="git checkout"
 alias gd="git diff"
 alias gs="git status"
 alias gsb="git status -sb"
+
+alias wetter="curl wttr.in"
+alias yayfind="yay -Slq | fzf -m --preview 'cat <(yay -Si {1}) <(yay -Fl {1} | awk \"{print \$2}\")' | xargs -ro  yay -S"

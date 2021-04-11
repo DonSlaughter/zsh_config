@@ -45,8 +45,8 @@ bindkey -s '^o' 'nvim $(fzf)^M'
 bindkey -s '^f' 'ranger^M'
 #TODO
 #escaping whitespace maybe with sed 's/ /\\ /g'
-#getting out with esc without opening zathura
-bindkey -s '^p' 'pdffile=$(find -iname \"*.pdf\" | fzf) && zathura $pdffile^M'
+#getting out with esc without opening evince
+bindkey -s '^p' 'pdffile=$(find -iname \"*.pdf\" | fzf) && evince $pdffile^M'
 if type yay &> /dev/null
 then
     bindkey -s '^u' 'yay -Syyu^M'
