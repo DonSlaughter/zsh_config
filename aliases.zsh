@@ -20,11 +20,11 @@ then
 	alias la="ls -la"
 	alias ll="ls -l"
 else
-	alias ls="exa --group-diecories-first --time-style=long-iso"
-	alias l="exa -l --group-diecories-first --time-style=long-iso"
-	alias la="exa -glah --git --icons --group-diecories-first --time-style=long-iso"
-	alias ll="exa -lh --git-ignore --icons --git --group-diecories-first --time-style=long-iso"
-	alias lt="exa -Tlh --icons --level=3 --group-diecories-first --time-style=long-iso"
+	alias ls="exa --group-directories-first --time-style=long-iso"
+	alias l="exa -l --group-directories-first --time-style=long-iso"
+	alias la="exa -glah --git --icons --group-directories-first --time-style=long-iso"
+	alias ll="exa -lh --icons --git --group-directories-first --time-style=long-iso"
+	alias lt="exa -Tlh --icons --level=3 --group-directories-first --time-style=long-iso"
 fi
 
 #color aliases:
