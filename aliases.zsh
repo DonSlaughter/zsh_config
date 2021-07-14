@@ -3,7 +3,7 @@ alias v="nvim"
 alias svim="sudo -E nvim"
 ## change directory and open files directly in vim
 alias zshconf="cd ~/.config/zsh && nvim .zshrc *.zsh"
-alias vimconf="cd ~/.vim && nvim vimrc *.vim"
+alias vimconf="cd ~/.vim && nvim vimrc *.vim ./lspconfig/*"
 
 #ask before removing, copying and moving
 #and show  result
@@ -20,11 +20,11 @@ then
 	alias la="ls -la"
 	alias ll="ls -l"
 else
-	alias ls="exa"
-	alias l="exa -l"
-	alias la="exa -glah --git --icons"
-	alias ll="exa -lh --git-ignore --icons --git"
-	alias lt="exa -Tlh --icons --level=3"
+	alias ls="exa --group-diecories-first --time-style=long-iso"
+	alias l="exa -l --group-diecories-first --time-style=long-iso"
+	alias la="exa -glah --git --icons --group-diecories-first --time-style=long-iso"
+	alias ll="exa -lh --git-ignore --icons --git --group-diecories-first --time-style=long-iso"
+	alias lt="exa -Tlh --icons --level=3 --group-diecories-first --time-style=long-iso"
 fi
 
 #color aliases:
