@@ -10,6 +10,7 @@ alias vimconf="cd ~/.vim && nvim vimrc *.vim ./lspconfig/*"
 alias rm="rm -iv"
 alias cp="cp -iv"
 alias mv="mv -iv"
+alias mkdir="mkdir -vp"
 
 #exa
 #exa is a ls clone which colors the output and the permissions, can show devicons and much more
