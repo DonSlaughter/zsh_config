@@ -15,17 +15,17 @@ alias mkdir="mkdir -vp"
 #exa
 #exa is a ls clone which colors the output and the permissions, can show devicons and much more
 #wrapper to check if exa is installed
-if ! command -v exa &> /dev/null
+if ! command -v eza &> /dev/null
 then
 	alias l="ls -alF"
 	alias la="ls -la"
 	alias ll="ls -l"
 else
-	alias ls="exa --group-directories-first --time-style=long-iso"
-	alias l="exa -l --group-directories-first --time-style=long-iso"
-	alias la="exa -glah --git --icons --group-directories-first --time-style=long-iso"
-	alias ll="exa -lh --icons --git --group-directories-first --time-style=long-iso"
-	alias lt="exa -Tlh --icons --level=3 --group-directories-first --time-style=long-iso"
+	alias ls="eza --group-directories-first --time-style=long-iso"
+	alias l="eza -l --group-directories-first --time-style=long-iso"
+	alias la="eza -glah --git --icons --group-directories-first --time-style=long-iso"
+	alias ll="eza -lh --icons --git --group-directories-first --time-style=long-iso"
+	alias lt="eza -Tlh --icons --level=3 --group-directories-first --time-style=long-iso"
 fi
 
 #color aliases:
@@ -56,5 +56,4 @@ alias gd="git diff"
 alias gs="git status"
 alias gsb="git status -sb"
 
-alias wetter="curl wttr.in"
 alias yayfind="yay -Slq | fzf -m --preview 'cat <(yay -Si {1}) <(yay -Fl {1} | awk \"{print \$2}\")' | xargs -ro  yay -S"
